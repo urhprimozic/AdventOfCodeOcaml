@@ -8,4 +8,6 @@ module List = struct
     sum' 0 l
 
   let lines = String.split_on_char '\n'
+
+  let with_index l = List.mapi (fun i x -> (i, x)) l
 end
