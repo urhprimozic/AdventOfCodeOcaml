@@ -24,8 +24,20 @@ V datoteki `project_windows` je že pripravljena koda za reševanje v eni sami d
 
 Za reševanje popravite funkcijo `choose_solver` in dodajte ustrezen modul `SolverX`.
 
-Program poženite s popravljenim `task`-om iz repozitorija predmeta:
+Program poženite s popravljenim `task`-om iz repozitorija predmeta. POZOR: Odstranite `-init`, saj drugače testnin program ne prepozna argumenta X:
 ```
 C:\\ ... bin\\ocaml.exe  \"${file}\" X"
 ```
 Kjer je X številka dneva, ki ga rešujete.
+
+## Pogosta vprašanje in rešitve
+
+### Ocaml javlja napako `end of line sequence`/`end of file` pri branju datoteke
+
+Datoteka je shranjena v `CRLF` formatu, pretvorite jo format `LF`. To najlažje storite tako, da jo odprete v VSC in spodaj izberete pravilni format ter ponovno shranite datoteko.
+
+Natančnejša navodila je Žiga prijazno napisal na <https://ucilnica.fmf.uni-lj.si/mod/forum/discuss.php?d=18334>
+
+### Funkcija `int_of_string` javi napako
+
+Pri kopiranju vsebine datoteke ste verjetno po nesreči dodali še eno prazno vrstico na konec. Ocaml tako skuša prazen niz pretvoriti v številko, kar pa ga zmoti. Odstranite prazno vrstico s konca vhhodne datoteke.
